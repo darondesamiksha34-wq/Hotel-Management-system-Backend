@@ -13,16 +13,18 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use(cors({
-  origin: function(origin, callback) {
-    const allowedOrigins = [
-      "http://localhost:5173",
-      "https://hotel-management-system-zlls.vercel.app"
-    ];
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
+  origin: function (origin, callback) {
+    // allow requests with no origin (like Postman)
+    if (!origin) return callback(null, true);
+
+    if (
+      origin.includes("localhost") ||
+      origin.includes("vercel.app")
+    ) {
+      return callback(null, true);
     }
+
+    return callback(new Error("Not allowed by CORS"));
   },
   credentials: true
 }));
