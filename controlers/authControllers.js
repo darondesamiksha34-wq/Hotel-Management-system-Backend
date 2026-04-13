@@ -2,8 +2,8 @@
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import UserModel from "../models/usermodel.js";
-import { sendEmail } from "../config/nodeMailer.js";
-
+// import { sendEmail } from "../config/nodeMailer.js";
+import { sendEmail } from "../config/sendEmail.js";
 
 // Register User
 
@@ -175,7 +175,7 @@ export const sendResetOtp = async (req, res) => {
       text: `Hi ${user.name}, your OTP for resetting your password is: ${otp}. It expires in 15 minutes.`,
     });
 
-    console.log("OPT:", otp);
+    console.log("OTP:", otp);
     
     console.log("✅ Password reset OTP sent to:", user.email);
 
