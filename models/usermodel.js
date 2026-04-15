@@ -23,9 +23,9 @@ const userSchema = new mongoose.Schema(
     password: { type: String, required: true },
 
     // Email verification OTP
-    verifyOtp: { type: String, default: "" },
-    verifyOtpExpiredAt: { type: Number, default: 0 },
-    isAccountVerified: { type: Boolean, default: false },
+    // verifyOtp: { type: String, default: "" },
+    // verifyOtpExpiredAt: { type: Number, default: 0 },
+    // isAccountVerified: { type: Boolean, default: false },
 
     // Password reset OTP
     resetOtp: { type: String, default: "" },
