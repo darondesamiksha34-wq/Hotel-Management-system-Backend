@@ -14,27 +14,88 @@
 // export default usermodel;
 
 
+// import mongoose from "mongoose";
+
+// const userSchema = new mongoose.Schema(
+//   {
+//     name: { type: String, required: true },
+//     email: { type: String, required: true, unique: true, lowercase: true, trim: true },
+//     password: { type: String, required: true },
+
+//     Email verification OTP
+//     verifyOtp: { type: String, default: "" },
+//     verifyOtpExpiredAt: { type: Number, default: 0 },
+//     isAccountVerified: { type: Boolean, default: false },
+
+//     // Password reset OTP
+//     resetOtp: { type: String, default: "" },
+//     resetOtpExpiredAt: { type: Number, default: 0 },
+//   },
+//   {
+//     timestamps: true,
+//   }
+// );
+
+// const UserModel = mongoose.models.User || mongoose.model("User", userSchema);
+// export default UserModel;
+
+
+
 import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema(
   {
-    name: { type: String, required: true },
-    email: { type: String, required: true, unique: true, lowercase: true, trim: true },
-    password: { type: String, required: true },
+    name: { 
+      type: String, 
+      required: true 
+    },
+
+    email: { 
+      type: String, 
+      required: true, 
+      unique: true, 
+      lowercase: true, 
+      trim: true 
+    },
+
+    password: { 
+      type: String, 
+      required: true 
+    },
 
     // Email verification OTP
-    // verifyOtp: { type: String, default: "" },
-    // verifyOtpExpiredAt: { type: Number, default: 0 },
-    // isAccountVerified: { type: Boolean, default: false },
+    verifyOtp: { 
+      type: String, 
+      default: "" 
+    },
+
+    verifyOtpExpiredAt: { 
+      type: Number, 
+      default: 0 
+    },
+
+    isAccountVerified: { 
+      type: Boolean, 
+      default: false 
+    },
 
     // Password reset OTP
-    resetOtp: { type: String, default: "" },
-    resetOtpExpiredAt: { type: Number, default: 0 },
+    resetOtp: { 
+      type: String, 
+      default: "" 
+    },
+
+    resetOtpExpiredAt: { 
+      type: Number, 
+      default: 0 
+    },
   },
   {
     timestamps: true,
   }
 );
 
-const UserModel = mongoose.models.User || mongoose.model("User", userSchema);
+const UserModel =
+  mongoose.models.User || mongoose.model("User", userSchema);
+
 export default UserModel;
