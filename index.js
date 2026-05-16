@@ -4,17 +4,19 @@ import connectDB from "./config/mongodb.js";
 import cors from 'cors';
 import cookieParser from "cookie-parser";
 import authRouter from "./routes/authRoutes.js";
+import dotenv from "dotenv";
+
 
 const app = express();
 
 connectDB();
-
+dotenv.config();
 app.use(express.json());
 app.use(cookieParser());
 
 app.use(cors({
   origin: function (origin, callback) {
-    // allow requests with no origin (like Postman)
+    
     if (!origin) return callback(null, true);
 
     if (
